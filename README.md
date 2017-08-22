@@ -28,6 +28,7 @@ Hot LESS Reloading solved via less-watch-compiler. Needed dependencies and npm c
 ## Point 2 - CRUD Patient
 
 
-## Point 4 - Server Side Rendering
+
+## Additional Point 2 - Server Side Rendering
 I used this tutorial to enable server side rendering
 https://medium.com/disdj/server-side-rendering-and-create-react-app-aka-react-scripts-f68411da7438

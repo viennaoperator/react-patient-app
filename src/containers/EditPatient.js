@@ -1,39 +1,35 @@
 import React from 'react'
 import {connect} from 'react-redux'
 import {Button, Col} from 'react-bootstrap'
-import {getPatient} from '../actions/patient'
+//import {getPatient} from '../actions/patient'
 import {editPatient} from '../actions/patient'
+import * as _ from 'lodash';
 
 
 let EditPatient = (props) => {
+
+    let patient =_.find(props.patients,(patient) =>{
+        return patient.id.toString() === props.id;
+    });
+
+    let name, email, birthday, phonenumber;
+
     console.log(props);
-    //console.log(props.dispatch);
-    //console.log(props.id);
-
-    let patient = props.dispatch(getPatient({
-        id: props.id
-    }))
-    //let patient = {id: 1, name: 'Harald', email: 'harald@outlook.at', birthday: '23.11.1994', phonenumber: '+443111231234'}
-
-    //console.log(patient);
-
-    let name = patient.name, email = patient.email, birthdate = patient.birthdate, phonenumber = patient.phonenumber
 
     return (
         <div>
             <form
                 onSubmit={e => {
                     console.log('submit edit');
-                    /*
-                    dispatch(editPatient({
+                    props.dispatch(editPatient({
                         patient: {
-                            id : '1',
-                            name : name,
-                            email : email,
-                            birthdate : birthdate,
-                            phonenumber: phonenumber
+                            id : props.id,
+                            name : name.value,
+                            email : email.value,
+                            birthday : birthday.value,
+                            phonenumber: phonenumber.value
                         }
-                    }))*/
+                    }))
                 }}
             >
                 <div id="modalInput">
@@ -45,6 +41,7 @@ let EditPatient = (props) => {
                             <input className="fullWidth"
                                    ref={node => {
                                        name = node
+                                       node.value = patient.name
                                    }}
                                    placeholder="Name"
                             />
@@ -59,6 +56,7 @@ let EditPatient = (props) => {
                             <input
                                 ref={node => {
                                     email = node
+                                    node.value = patient.email
                                 }}
                                 placeholder="patient@sick.com"
                             />
@@ -73,7 +71,8 @@ let EditPatient = (props) => {
                         <Col sm={9}>
                             <input
                                 ref={node => {
-                                    birthdate = node
+                                    birthday = node
+                                    node.value = patient.birthday
                                 }}
                                 placeholder="22/05/1990"
                             />
@@ -88,6 +87,7 @@ let EditPatient = (props) => {
                             <input
                                 ref={node => {
                                     phonenumber = node
+                                    node.value = patient.phonenumber
                                 }}
                                 placeholder="+44123456789"
                             />
@@ -103,11 +103,12 @@ let EditPatient = (props) => {
 
 const mapStateToProps = state => {
     return {
-        state : state
+        patients: state.patients
     }
 }
 
 EditPatient = connect(
+    mapStateToProps
 )(EditPatient)
 
 export default EditPatient

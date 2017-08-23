@@ -11,10 +11,17 @@ export const addPatient = patient => {
     }
 }
 
+export const deletePatient = id => {
+    return {
+        type: 'DELETE_PATIENT',
+        id: id
+    }
+}
+
 export const editPatient = patient => {
     return {
         type: 'EDIT_PATIENT',
-        patient: patient
+        patient: patient.patient
     }
 }
 

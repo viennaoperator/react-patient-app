@@ -1,3 +1,5 @@
+import * as _ from 'lodash';
+
 const initialState = [
     {id: 1, name: 'Harald', email: 'harald@outlook.at', birthday: '23.11.1994', phonenumber: '+443111231234'},
     {id: 2, name: 'Stefan', email: 'stefan@outlook.at', birthday: '10.11.1994', phonenumber: '+443111421234'},
@@ -19,14 +21,28 @@ const patients = (state = initialState, action) => {
                 }
             ]
         case 'EDIT_PATIENT':
-            return state.map(patient =>
+            console.log('EDIT_PATIENT');
+            console.log(action);
+            console.log(action.patient);
+            let indexToEdit = _.findIndex(state, {id: action.patient.id});
+            console.log(indexToEdit);
+            state[indexToEdit] = action.patient;
+            return [...state];
+            /*return state.map(patient =>
                 (patient.id === action.patient.id)
                     ? {...patient}
                     : patient
-            )
-        case 'GET_PATIENT':
-            return state.map(patient =>
-                (patient.id === action.id) ? patient : null )
+            )*/
+
+        case 'DELETE_PATIENT':
+            _.remove(state,{
+                id: action.id
+            });
+            return [...state]; 
+
+        case 'SHOW_ALL':
+            return state;
+
         default:
             return state
     }

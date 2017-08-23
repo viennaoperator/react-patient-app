@@ -21,9 +21,12 @@ const patients = (state = initialState, action) => {
         case 'EDIT_PATIENT':
             return state.map(patient =>
                 (patient.id === action.patient.id)
-                    ? {...patient, name: action.patient.name}
+                    ? {...patient}
                     : patient
             )
+        case 'GET_PATIENT':
+            return state.map(patient =>
+                (patient.id === action.id) ? patient : null )
         default:
             return state
     }

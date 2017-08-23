@@ -10,7 +10,7 @@ const Patient = (props) => (
         <td>{props.birthday}</td>
         <td>{props.phonenumber}</td>
         <td>
-            <Button><Glyphicon glyph="pencil"/>Edit</Button>
+            <Button><Glyphicon glyph="pencil" />Edit</Button>
             <Button bsStyle="danger"><Glyphicon glyph="remove" />Delete</Button>
         </td>
     </tr>

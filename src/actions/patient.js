@@ -17,3 +17,10 @@ export const editPatient = patient => {
         patient: patient
     }
 }
+
+export const getPatient = patient => {
+    return {
+        type: 'GET_PATIENT',
+        patient: patient.id
+    }
+}

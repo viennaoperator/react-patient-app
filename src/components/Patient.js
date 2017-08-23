@@ -1,7 +1,7 @@
 import React from 'react'
-import { Button } from 'react-bootstrap'
-import { Glyphicon } from 'react-bootstrap'
-// import {Link} from 'react-router-dom';
+import {Button} from 'react-bootstrap'
+import {Glyphicon} from 'react-bootstrap'
+import {Link} from 'react-router-dom';
 
 const Patient = (props) => (
     <tr>
@@ -10,9 +10,12 @@ const Patient = (props) => (
         <td>{props.email}</td>
         <td>{props.birthday}</td>
         <td>{props.phonenumber}</td>
-        <td>
-                <Button bsStyle="primary"><Glyphicon glyph="pencil" />Edit</Button>
-            <Button onClick={()=>{props.deletePatient(props.id)}} bsStyle="danger"><Glyphicon glyph="remove" />Delete</Button>
+        <td><Link to={`patientsedit/${props.id}`}  >
+            <Button bsStyle="primary"><Glyphicon glyph="pencil"/>Edit</Button>
+        </Link>
+            <Button onClick={() => {
+                props.deletePatient(props.id)
+            }} bsStyle="danger"><Glyphicon glyph="remove"/>Delete</Button>
         </td>
     </tr>
 )

@@ -4,7 +4,7 @@ import {Button, Col} from 'react-bootstrap'
 //import {getPatient} from '../actions/patient'
 import {editPatient} from '../actions/patient'
 import * as _ from 'lodash';
-
+import {Link} from 'react-router-dom';
 
 let EditPatient = (props) => {
 
@@ -95,7 +95,9 @@ let EditPatient = (props) => {
                     </Col>
                     <br />
                 </div>
-                <Button bsStyle="primary" type='submit' className="modal-primary">Submit Changes</Button>
+                <Link to="/patients">
+                    <Button bsStyle="primary" type='submit' className="modal-primary">Submit Changes</Button>
+                </Link>
             </form>
         </div>
     )

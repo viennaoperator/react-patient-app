@@ -24,9 +24,10 @@ const patients = (state = initialState, action) => {
             console.log('EDIT_PATIENT');
             console.log(action);
             console.log(action.patient);
-            let indexToEdit = _.findIndex(state, {id: action.patient.id});
+            let indexToEdit = _.findIndex(state, {id: parseInt(action.patient.id)});
             console.log(indexToEdit);
-            state[indexToEdit] = action.patient;
+            console.log(state[indexToEdit]);
+            console.log(state);
             return [...state];
             /*return state.map(patient =>
                 (patient.id === action.patient.id)

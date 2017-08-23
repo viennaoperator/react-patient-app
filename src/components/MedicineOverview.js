@@ -38,7 +38,7 @@ export class MedicineOverview extends Component {
     render(){
         return (
             <div>
-                <Col sm={8} md={10} smOffset={2} mdOffset={1}>
+                <Col sm={12}>
                 <h2>
                     Medicine Database
                 </h2>

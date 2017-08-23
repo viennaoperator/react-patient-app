@@ -4,7 +4,7 @@ import Patient from './Patient'
 import { Form } from 'react-bootstrap'
 import SearchInput from './SearchInput'
 
-const PatientList = ({patients}) => (
+const PatientList = ({patients,deletePatient}) => (
     <div>
         <h2>PatientSky Patients:</h2>
         <Form>
@@ -23,7 +23,7 @@ const PatientList = ({patients}) => (
             </thead>
             <tbody>
             {patients.map(patient => (
-                <Patient key={patient.id} {...patient}/>
+                <Patient key={patient.id} {...patient} deletePatient= {deletePatient}/>
             ))}
             </tbody>
         </table>
@@ -36,7 +36,8 @@ PatientList.propTypes = {
             id: PropTypes.number.isRequired,
             name: PropTypes.string.isRequired
         }).isRequired
-    ).isRequired
+    ).isRequired,
+    deletePatient: PropTypes.func.isRequired
 }
 
 export default PatientList

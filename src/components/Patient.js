@@ -11,7 +11,7 @@ const Patient = (props) => (
         <td>{props.phonenumber}</td>
         <td>
             <Button bsStyle="primary"><Glyphicon glyph="pencil" />Edit</Button>
-            <Button bsStyle="danger"><Glyphicon glyph="remove" />Delete</Button>
+            <Button onClick={()=>{props.deletePatient(props.id)}} bsStyle="danger"><Glyphicon glyph="remove" />Delete</Button>
         </td>
     </tr>
 )

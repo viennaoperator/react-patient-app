@@ -1,14 +1,11 @@
 import React from 'react'
 import PropTypes from 'prop-types'
 import Patient from './Patient'
-import { Button, Form } from 'react-bootstrap'
+import { Form } from 'react-bootstrap'
 import SearchInput from './SearchInput'
-import AddPatient from '../containers/AddPatient';
 
 const PatientList = ({patients}) => (
     <div>
-        <AddPatient />
-        <Button bsStyle="success">Add Patient</Button>
         <h2>PatientSky Patients:</h2>
         <Form>
             <SearchInput placeholder='search for patient name..'/>

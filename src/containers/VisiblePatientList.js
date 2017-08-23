@@ -2,8 +2,6 @@ import { connect } from 'react-redux'
 import PatientList from '../components/PatientList'
 
 const getVisiblePatients = (patients, action) => {
-    console.log('getVisiblePatients');
-    console.log(patients);
     switch (action) {
         case 'SHOW_ALL':
             return patients;

@@ -5,7 +5,7 @@ import MedicineList from './MedicineList';
 import { Col } from 'react-bootstrap/lib';
 import SearchInput from './SearchInput';
 
-export class MedicineDatabase extends Component {
+export class MedicineOverview extends Component {
     constructor(props){
         super(props);
         this.state = {
@@ -52,4 +52,4 @@ export class MedicineDatabase extends Component {
     }
 }
 
-export default MedicineDatabase;
+export default MedicineOverview;

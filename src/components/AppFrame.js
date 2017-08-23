@@ -5,8 +5,9 @@ import patientskylogo from '../img/patientskylogo.png';
 import {BrowserRouter as Router, Route} from 'react-router-dom';
 import {Home} from './Home';
 import {Grid, Col} from 'react-bootstrap';
-import {MedicineDatabase} from './MedicineDatabase';
-import VisiblePatientList from '../containers/VisiblePatientList';
+import {MedicineOverview} from './MedicineOverview';
+import {AddPatient} from '../containers/AddPatient';
+import {PatientOverview} from './PatientOverview';
 
 export class AppFrame extends Component {
     render() {
@@ -18,8 +19,8 @@ export class AppFrame extends Component {
                         <Grid>
                             <Col sm={12}>
                                 <Route path="/" exact component={Home}/>
-                                <Route path="/medicines" exact component={MedicineDatabase}/>
-                                <Route path="/patients" exact component={VisiblePatientList}/>
+                                <Route path="/medicines" exact component={MedicineOverview}/>
+                                <Route path="/patients" exact component={PatientOverview} />
                             </Col>
                         </Grid>
                     </div>

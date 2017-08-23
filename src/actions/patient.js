@@ -1,10 +1,13 @@
 //due to test data
 let nextPatientId = 4
-export const addPatient = name => {
+export const addPatient = patient => {
     return {
         type: 'ADD_PATIENT',
         id: nextPatientId++,
-        name: name
+        name: patient.name,
+        email: patient.email,
+        birthday: patient.birthday,
+        phonenumber: patient.phonenumber
     }
 }
 

@@ -6,7 +6,6 @@ import {BrowserRouter as Router, Route} from 'react-router-dom';
 import {Home} from './Home';
 import {Grid, Col} from 'react-bootstrap';
 import {MedicineOverview} from './MedicineOverview';
-import {AddPatient} from '../containers/AddPatient';
 import {PatientOverview} from './PatientOverview';
 
 export class AppFrame extends Component {

@@ -18,10 +18,8 @@ const PatientModal = ({toggleModal, showModal}) => {
                     </Modal.Header>
                     <Modal.Body>
                         <AddPatient/>
+                        <Button onClick={toggleModal} className="modal-button">Close</Button>
                     </Modal.Body>
-                    <Modal.Footer>
-                        <Button onClick={toggleModal}>Close</Button>
-                    </Modal.Footer>
                 </Modal>
             </div>
         </div>

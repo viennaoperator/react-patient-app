@@ -12,7 +12,10 @@ const patients = (state = initialState, action) => {
                 ...state,
                 {
                     id: action.id,
-                    name: action.name
+                    name: action.name,
+                    email: action.email,
+                    birthday: action.birthday,
+                    phonenumber: action.phonenumber
                 }
             ]
         case 'EDIT_PATIENT':

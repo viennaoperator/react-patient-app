@@ -44,7 +44,7 @@ export class MedicineOverview extends Component {
                 </h2>
                 <SearchInput placeholder="search for medicine" onClickFunction={this.searchMedicine}/>
                 </Col>
-                <Col sm={8} md={10} smOffset={2} mdOffset={1}>
+                <Col sm={12}>
                     <MedicineList listOfMedicines={this.state.medicines}/>
                 </Col>
             </div>

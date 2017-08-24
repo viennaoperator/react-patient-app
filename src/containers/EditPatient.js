@@ -1,7 +1,6 @@
 import React from 'react'
 import {connect} from 'react-redux'
 import {Button, Col} from 'react-bootstrap'
-//import {getPatient} from '../actions/patient'
 import {editPatient} from '../actions/patient'
 import * as _ from 'lodash';
 import {Link} from 'react-router-dom';
@@ -19,18 +18,7 @@ let EditPatient = (props) => {
     return (
         <div>
             <form
-                onSubmit={e => {
-                    console.log('submit edit');
-                    props.dispatch(editPatient({
-                        patient: {
-                            id : props.id,
-                            name : name.value,
-                            email : email.value,
-                            birthday : birthday.value,
-                            phonenumber: phonenumber.value
-                        }
-                    }))
-                }}
+
             >
                 <div id="modalInput">
                     <Col>
@@ -41,7 +29,9 @@ let EditPatient = (props) => {
                             <input className="fullWidth"
                                    ref={node => {
                                        name = node
-                                       node.value = patient.name
+                                       if(patient && node){
+                                           node.value = patient.name
+                                       }
                                    }}
                                    placeholder="Name"
                             />
@@ -56,7 +46,9 @@ let EditPatient = (props) => {
                             <input
                                 ref={node => {
                                     email = node
-                                    node.value = patient.email
+                                    if(patient && node){
+                                        node.value = patient.email
+                                    }
                                 }}
                                 placeholder="patient@sick.com"
                             />
@@ -72,7 +64,9 @@ let EditPatient = (props) => {
                             <input
                                 ref={node => {
                                     birthday = node
-                                    node.value = patient.birthday
+                                    if(patient && node){
+                                        node.value = patient.birthday
+                                    }
                                 }}
                                 placeholder="22/05/1990"
                             />
@@ -87,7 +81,9 @@ let EditPatient = (props) => {
                             <input
                                 ref={node => {
                                     phonenumber = node
-                                    node.value = patient.phonenumber
+                                    if(patient && node){
+                                        node.value = patient.phonenumber
+                                    }
                                 }}
                                 placeholder="+44123456789"
                             />
@@ -96,7 +92,18 @@ let EditPatient = (props) => {
                     <br />
                 </div>
                 <Link to="/patients">
-                    <Button bsStyle="primary" type='submit' className="modal-primary">Submit Changes</Button>
+                    <Button bsStyle="primary" type='submit' className="modal-primary" onClick={e => {
+                        console.log('submit edit');
+                        props.dispatch(editPatient({
+                            patient: {
+                                id : parseInt(props.id,10),
+                                name : name.value,
+                                email : email.value,
+                                birthday : birthday.value,
+                                phonenumber: phonenumber.value
+                            }
+                        }))
+                    }}>Submit Changes</Button>
                 </Link>
             </form>
         </div>

@@ -19,6 +19,7 @@ export const deletePatient = id => {
 }
 
 export const editPatient = patient => {
+    console.log('EDIT_PATIENT');
     return {
         type: 'EDIT_PATIENT',
         patient: patient.patient

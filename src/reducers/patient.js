@@ -21,19 +21,10 @@ const patients = (state = initialState, action) => {
                 }
             ]
         case 'EDIT_PATIENT':
-            console.log('EDIT_PATIENT');
-            console.log(action);
-            console.log(action.patient);
-            let indexToEdit = _.findIndex(state, {id: parseInt(action.patient.id)});
-            console.log(indexToEdit);
-            console.log(state[indexToEdit]);
-            console.log(state);
+            let indexToEdit = _.findIndex(state, {
+                id: action.patient.id});
+            state[indexToEdit] = action.patient;
             return [...state];
-            /*return state.map(patient =>
-                (patient.id === action.patient.id)
-                    ? {...patient}
-                    : patient
-            )*/
 
         case 'DELETE_PATIENT':
             _.remove(state,{

@@ -5,7 +5,7 @@ import AddPatient from "../containers/AddPatient";
 const PatientModal = ({toggleModal, showModal}) => {
     return (
         <div>
-            <Button onClick={toggleModal}>Add Patient</Button>
+            <Button onClick={toggleModal} bsStyle="primary" className="modal-primary ">Add Patient</Button>
             <div>
                 <Modal
                     show={showModal}

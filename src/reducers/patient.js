@@ -9,7 +9,6 @@ const initialState = [
 const patients = (state = initialState, action) => {
     switch (action.type) {
         case 'ADD_PATIENT':
-            console.log('adding patient with name:' + action.name);
             return [
                 ...state,
                 {
@@ -33,10 +32,10 @@ const patients = (state = initialState, action) => {
             return [...state]; 
 
         case 'SHOW_ALL':
-            return state;
+            return [...state];
 
         default:
-            return state
+            return [...state];
     }
 }
 

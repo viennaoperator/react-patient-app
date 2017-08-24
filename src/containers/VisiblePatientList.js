@@ -20,6 +20,6 @@ const mapDispatchToProps = dispatch => {
 const VisiblePatientList = connect(
     mapStateToProps,
     mapDispatchToProps
-)(PatientListWithSearch)
+)(PatientList)
 
 export default VisiblePatientList

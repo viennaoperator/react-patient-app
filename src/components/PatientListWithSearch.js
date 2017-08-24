@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import PropTypes from 'prop-types'
 import SearchInput from "./SearchInput";
 import Patient from './Patient';
 
@@ -6,9 +7,9 @@ export class PatientListWithSearch extends Component {
 
     constructor(props){
         super(props);
+        console.log(this);
         this.searchFunction = this.searchFunction.bind(this);
         this.state = {
-            patients : props.patients,
             shownPatients: props.patients
         };
     }
@@ -16,8 +17,7 @@ export class PatientListWithSearch extends Component {
     searchFunction = (SearchTerm) => {
         console.log('searchFunction' + SearchTerm);
         this.setState({
-            patients : this.props.patients,
-            shownPatients:  this.state.patients.filter((patient) =>
+            shownPatients:  this.props.patients.filter((patient) =>
                 patient.name.toUpperCase().includes(SearchTerm.toUpperCase()))
         })
     }
@@ -48,5 +48,16 @@ export class PatientListWithSearch extends Component {
         )
     }
 }
+
+PatientListWithSearch.propTypes = {
+    patients: PropTypes.arrayOf(
+        PropTypes.shape({
+            id: PropTypes.number.isRequired,
+            name: PropTypes.string.isRequired
+        }).isRequired
+    ).isRequired,
+    deletePatient: PropTypes.func.isRequired
+}
+
 
 export default PatientListWithSearch

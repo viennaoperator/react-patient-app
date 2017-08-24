@@ -12,6 +12,6 @@ ReactDOM.render(
         <div>
             <AppFrame />
         </div>
-    </Provider>,
+    </Provider>, 
     document.getElementById('app')
 );

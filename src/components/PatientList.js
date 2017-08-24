@@ -1,10 +1,22 @@
 import React from 'react'
 import PropTypes from 'prop-types'
 import Patient from './Patient'
+import SearchInput from "./SearchInput";
 
-const PatientList = ({patients,deletePatient}) => (
+var searchFunction = (patients, SearchTerm) => {
+    console.log('searchFunction' + SearchTerm);
+    console.log(patients);
+
+    patients = patients.filter((patient) =>
+        patient.name.toUpperCase().includes(SearchTerm.toUpperCase()))
+
+    return patients
+}
+
+const PatientList = ({patients, deletePatient}) => (
     <div>
         <h2>PatientSky Patients:</h2>
+        <SearchInput onClickFunction={searchFunction.bind(null, patients)}/>
         <table id="patient-list">
             <thead>
             <tr>

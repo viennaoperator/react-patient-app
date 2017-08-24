@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import { Button } from 'react-bootstrap'
+import { Button, Form } from 'react-bootstrap'
 
 export class SearchInput extends Component {
     constructor(){
@@ -26,8 +26,10 @@ export class SearchInput extends Component {
     render() {
         return (
             <div>
-                <input placeholder={this.props.placeholder} onChange={this.handleChange}></input>
-                <Button bsStyle="primary" onClick={this.submitHandler}>Search</Button>
+                <Form onSubmit={(e) => {this.submitHandler(); e.preventDefault();}}>
+                    <input placeholder={this.props.placeholder} onChange={this.handleChange}></input>
+                    <Button bsStyle="primary" onClick={this.submitHandler}>Search</Button>
+                </Form>
             </div>
         )
     }

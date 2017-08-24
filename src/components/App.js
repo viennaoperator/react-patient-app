@@ -31,10 +31,8 @@ export class App extends Component {
             <div className="App">
                 <Button bsStyle="success">Add Patient</Button>
                 <h2>PatientSky Patients:</h2>
-                <Form>
-                    <SearchInput placeholder='search for patient..'/>
-                    <PatientModal toggleModal={this.toggleModal} showModal={this.state.showModal}/>
-                </Form>
+                <SearchInput placeholder='search for patient..'/>
+                <PatientModal toggleModal={this.toggleModal} showModal={this.state.showModal}/>
                 <table>
                     <thead>
                     <tr>

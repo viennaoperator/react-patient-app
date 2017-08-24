@@ -1,6 +1,7 @@
 import { connect } from 'react-redux'
 import PatientList from '../components/PatientList'
 import {deletePatient} from '../actions/patient'
+import {PatientListWithSearch} from "../components/PatientListWithSearch"
 
 const mapStateToProps = state => {
     return {
@@ -19,6 +20,6 @@ const mapDispatchToProps = dispatch => {
 const VisiblePatientList = connect(
     mapStateToProps,
     mapDispatchToProps
-)(PatientList)
+)(PatientListWithSearch)
 
 export default VisiblePatientList
